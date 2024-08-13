@@ -1,0 +1,1 @@
+<view> 我的 <button open-type="getPhoneNumber" bindgetphonenumber="{{a}}">获取手机号</button></view>
