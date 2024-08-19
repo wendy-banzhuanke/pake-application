@@ -1,7 +1,7 @@
 /*
  * @Author: zhangjian
  * @Date: 2024-06-14 09:39:15
- * @LastEditTime: 2024-08-13 17:49:32
+ * @LastEditTime: 2024-08-19 10:26:06
  * @LastEditors: zhangjian
  * @Description: 接口请求
  */
@@ -17,6 +17,8 @@ export const LoginApi = {
 export const LogoutApi = {
   logout: () => axios.post(`/logout`)
 }
+
+/** 天气 */
 export const WeatherApi = {
-  getWeather: (params={}) => axios.get(`/weather/getWeather`, params), // 获取天气
+  getWeather: (params={}) => axios.post(`/weather/getWeatherInfo`, params), // 获取天气
 }

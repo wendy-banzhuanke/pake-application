@@ -20,15 +20,16 @@ let WeatherController = class WeatherController {
         this.weatherService = weatherService;
     }
     async getWeatherInfoByCity(city) {
-        console.log("city====", city);
-        const _weatherInfo = await this.weatherService.getWeatherInfo(110101);
-        console.log("weatherService====", _weatherInfo);
+        const cityCode = Number(city);
+        console.log("cityCode====", city, cityCode);
+        const _weatherInfo = await this.weatherService.getWeatherInfo(cityCode);
         return { code: '000000', success: true, data: _weatherInfo.lives };
     }
 };
 exports.WeatherController = WeatherController;
 __decorate([
     (0, common_1.Post)('getWeatherInfo'),
+    (0, common_1.HttpCode)(200),
     __param(0, (0, common_1.Body)('city')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

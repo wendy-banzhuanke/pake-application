@@ -1,14 +1,14 @@
 <!--
  * @Author: zhangjian
  * @Date: 2024-08-01 19:41:20
- * @LastEditTime: 2024-08-14 15:38:39
+ * @LastEditTime: 2024-08-19 15:15:45
  * @LastEditors: zhangjian
  * @Description: 首页
 -->
 <template>
 	<view class="content">
 		<view class="text-area">
-			<text class="title">{{title}}11122{{ _data }}</text>
+			<text class="title" @click="handleJump('weather/index')">天气</text>
 		</view>
 	</view>
 </template>
@@ -22,6 +22,13 @@
 	function test() {
 		_data.value = 'hahahah2222a'
 	}
+
+	function handleJump(url: string) {
+		uni.navigateTo({
+			url: `/pages/${url}`
+		})
+	}
+
 	onShow(() => {
 		test()
 	})

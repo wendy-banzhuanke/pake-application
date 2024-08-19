@@ -3,6 +3,7 @@ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
 const common_wechatAuth = require("./common/wechat-auth.js");
 if (!Math) {
+  "./pages/index/index.js";
   "./pages/weather/index.js";
   "./pages/my/index.js";
 }
