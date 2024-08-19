@@ -7,3 +7,4 @@
  */
 export const wechatAppid: string = 'wxd448934793f03ac4';
 export const wechatSecret: string = '29e4e29d42dd582a70013c594fc7ed3d';
+export const amapKey: string = '24391e0b781a220bb5ce22538c067d75'

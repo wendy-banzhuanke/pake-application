@@ -1,7 +1,7 @@
 <!--
  * @Author: zhangjian
  * @Date: 2024-06-24 01:47:12
- * @LastEditTime: 2024-06-24 16:00:44
+ * @LastEditTime: 2024-08-14 15:19:19
  * @LastEditors: zhangjian
  * @Description: 入口
 -->
@@ -24,6 +24,7 @@
 	}
 </script>
 
-<style>
-	/*每个页面公共css */
+<style lang="scss">
+	/* 注意要写在第一行，同时给style标签加入lang="scss"属性 */
+	@import "uview-plus/index.scss";
 </style>

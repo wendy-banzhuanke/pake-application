@@ -1,0 +1,1 @@
+<view class="weather-comp data-v-37d277d7"><view class="data-v-37d277d7">输入位置</view><view class="data-v-37d277d7">选择城市</view><view class="container data-v-37d277d7">天气显示</view><weather-comp class="data-v-37d277d7" u-i="37d277d7-0" bind:__l="__l"/></view>

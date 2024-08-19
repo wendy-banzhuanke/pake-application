@@ -1,13 +1,12 @@
 <!--
  * @Author: zhangjian
- * @Date: 2019-08-22 19:41:20
- * @LastEditTime: 2024-08-01 15:51:31
+ * @Date: 2024-08-01 19:41:20
+ * @LastEditTime: 2024-08-14 15:38:39
  * @LastEditors: zhangjian
- * @Description: 描述
+ * @Description: 首页
 -->
 <template>
 	<view class="content">
-		<!-- <image class="logo" src="/static/logo.png"></image> -->
 		<view class="text-area">
 			<text class="title">{{title}}11122{{ _data }}</text>
 		</view>
@@ -25,7 +24,6 @@
 	}
 	onShow(() => {
 		test()
-		console.log("进来啦-1111--", _data.value)
 	})
 </script>
 

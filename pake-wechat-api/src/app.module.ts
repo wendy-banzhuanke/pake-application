@@ -10,9 +10,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoginModule } from './wechat/login.module'; // 引入 Wechat 模块
 // import { LoginService } from './wechat/login.service';
+import { WeatherModule } from './weather/weather.module';
 
 @Module({
-  imports: [LoginModule],
+  imports: [LoginModule, WeatherModule],
   controllers: [AppController],
   providers: [AppService],
 })

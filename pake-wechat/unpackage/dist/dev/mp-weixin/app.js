@@ -3,7 +3,7 @@ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const common_vendor = require("./common/vendor.js");
 const common_wechatAuth = require("./common/wechat-auth.js");
 if (!Math) {
-  "./pages/index/index.js";
+  "./pages/weather/index.js";
   "./pages/my/index.js";
 }
 const _sfc_main = {
@@ -23,6 +23,7 @@ const _sfc_main = {
 };
 function createApp() {
   const app = common_vendor.createSSRApp(_sfc_main);
+  app.use(common_vendor.uviewPlus);
   return {
     app
   };

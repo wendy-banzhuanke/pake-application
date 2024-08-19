@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/weather/index",
     "pages/my/index"
   ],
   "window": {
@@ -15,7 +15,7 @@
     "backgroundColor": "white",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/weather/index",
         "iconPath": "static/images/tab-bar/home.png",
         "selectedIconPath": "static/images/tab-bar/home-s.png",
         "text": "首页"

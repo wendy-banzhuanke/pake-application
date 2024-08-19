@@ -59,18 +59,19 @@ export class LoginService {
     );
 
     const sessionKey = sessionResponse.data.session_key;
-    const decipher = crypto.createDecipheriv(
-      'aes-128-cbc',
-      Buffer.from(sessionKey, 'base64'),
-      Buffer.from(iv, 'base64'),
-    );
-    let decrypted = decipher.update(
-      Buffer.from(encryptedData, 'base64'),
-      'base64',
-      'utf8',
-    );
-    decrypted += decipher.final('utf8');
+    // const decipher = crypto.createDecipheriv(
+    //   'aes-128-cbc',
+    //   Buffer.from(sessionKey, 'base64'),
+    //   Buffer.from(iv, 'base64'),
+    // );
+    // let decrypted = decipher.update(
+    //   Buffer.from(encryptedData, 'base64'),
+    //   'base64',
+    //   'utf8',
+    // );
+    // decrypted += decipher.final('utf8');
 
-    return JSON.parse(decrypted);
+    // return JSON.parse(decrypted);
+    return ""
   }
 }

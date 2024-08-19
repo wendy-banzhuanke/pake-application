@@ -14,7 +14,6 @@ const common_1 = require("@nestjs/common");
 const axios_1 = require("@nestjs/axios");
 const jwt_1 = require("@nestjs/jwt");
 const rxjs_1 = require("rxjs");
-const crypto = require("crypto");
 const index_1 = require("../config/index");
 let LoginService = class LoginService {
     constructor(httpService, jwtService) {
@@ -46,10 +45,7 @@ let LoginService = class LoginService {
             },
         }));
         const sessionKey = sessionResponse.data.session_key;
-        const decipher = crypto.createDecipheriv('aes-128-cbc', Buffer.from(sessionKey, 'base64'), Buffer.from(iv, 'base64'));
-        let decrypted = decipher.update(Buffer.from(encryptedData, 'base64'), 'base64', 'utf8');
-        decrypted += decipher.final('utf8');
-        return JSON.parse(decrypted);
+        return "";
     }
 };
 exports.LoginService = LoginService;
