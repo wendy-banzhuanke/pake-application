@@ -7,4 +7,9 @@ export declare class WeatherController {
         success: boolean;
         data: any;
     }>;
+    generateAddressData(): {
+        message: string;
+        code: string;
+    };
+    getUsualAddress(): string[];
 }

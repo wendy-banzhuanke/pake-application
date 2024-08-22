@@ -14,6 +14,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WeatherController = void 0;
 const common_1 = require("@nestjs/common");
+const fs = require("fs");
+const path = require("path");
 const weather_service_1 = require("./weather.service");
 let WeatherController = class WeatherController {
     constructor(weatherService) {
@@ -25,6 +27,19 @@ let WeatherController = class WeatherController {
         const _weatherInfo = await this.weatherService.getWeatherInfo(cityCode);
         return { code: '000000', success: true, data: _weatherInfo.lives };
     }
+    generateAddressData() {
+        const filePath = path.join(process.cwd(), 'src', 'assets', 'AMap_adcode_citycode.xlsx');
+        const distFilePath = path.join(process.cwd(), 'dist', 'assets', 'AMap_adcode_citycode.xlsx');
+        const finalFilePath = fs.existsSync(distFilePath) ? distFilePath : filePath;
+        this.weatherService.generateAddressData(finalFilePath);
+        return {
+            message: '生成地址数据成功',
+            code: '000000',
+        };
+    }
+    getUsualAddress() {
+        return this.weatherService.getUsualAddress();
+    }
 };
 exports.WeatherController = WeatherController;
 __decorate([
@@ -35,6 +50,18 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], WeatherController.prototype, "getWeatherInfoByCity", null);
+__decorate([
+    (0, common_1.Get)('generateAddressData'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], WeatherController.prototype, "generateAddressData", null);
+__decorate([
+    (0, common_1.Post)('getUsualAddress'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], WeatherController.prototype, "getUsualAddress", null);
 exports.WeatherController = WeatherController = __decorate([
     (0, common_1.Controller)('/weather'),
     __metadata("design:paramtypes", [weather_service_1.WeatherService])
