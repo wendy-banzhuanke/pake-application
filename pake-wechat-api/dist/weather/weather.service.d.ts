@@ -4,5 +4,18 @@ export declare class WeatherService {
     constructor(httpService: HttpService);
     getWeatherInfo(city: number): Promise<any>;
     generateAddressData(filePath: string): void;
-    getUsualAddress(): string[];
+    getUsualAddress(): {
+        label: string;
+        value: string;
+        children: {
+            label: string;
+            value: string;
+            children: {
+                label: string;
+                value: string;
+            }[];
+        }[];
+    }[];
+    getSearchAddress(keyword: string): any[];
+    flattenAddresses(treeData: any, parentPath?: string): any[];
 }

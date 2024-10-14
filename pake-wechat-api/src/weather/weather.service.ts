@@ -1,7 +1,7 @@
 /*
  * @Author: zhangjian
  * @Date: 2024-08-14 16:26:34
- * @LastEditTime: 2024-08-22 16:32:19
+ * @LastEditTime: 2024-10-12 09:47:31
  * @LastEditors: zhangjian
  * @Description: 描述
  */
@@ -12,7 +12,7 @@ import * as xlsx from 'xlsx';
 import * as fs from 'fs';
 import * as path from 'path';
 import { amapKey } from '../config/index';
-import { addressTree } from '../assets/address';
+import addressData from '../assets/address';
 
 interface TreeNode {
   label: string;
@@ -29,7 +29,7 @@ export class WeatherService {
     const weatherUrl = `https://restapi.amap.com/v3/weather/weatherInfo?city=${city}&key=${amapKey}`;
 
     const response$ = await lastValueFrom(this.httpService.get(weatherUrl));
-
+    
     return response$.data;
   }
 
@@ -63,15 +63,74 @@ export class WeatherService {
         }
       }
       const jsContent = `const addressData = ${JSON.stringify(addressData, null, 2)}; \n\n module.exports = addressData \n`;
-      const outputPath = path.join(process.cwd(), 'src', 'assets', 'address.ts');
+      const outputPath = path.join(
+        process.cwd(),
+        'src',
+        'assets',
+        'address.ts',
+      );
       fs.writeFileSync(outputPath, jsContent);
     });
   }
 
   getUsualAddress() {
-    const addressCode = ['110000', '120000', '130000', '140000', '210000'];
-    console.log("addressTree===>", addressTree.length)
-    const usualAddressList = addressTree.filter(item => addressCode.includes(item.value)).map(i => {label: i.label; value: i.value});
+    const addressCode = ['110000', '120000', '130000'];
+    const usualAddressList = addressData.filter(
+      (item) => !!addressCode.includes(item.value),
+    );
     return usualAddressList;
   }
+
+  getSearchAddress(keyword: string) {
+    if (keyword.trim() === '') {
+      return;
+    }
+    const flatAddresses = this.flattenAddresses(addressData);
+    const regex = new RegExp(keyword.trim(), 'i');
+    const _flat = flatAddresses.filter((address) => !!regex.test(address.name));
+
+    return _flat;
+  }
+
+  // 使用示例
+  // const flattenedAddresses = flattenTree(addresses);
+  // console.log(flattenedAddresses);
+
+  // flattenData(treeData) {
+  //   const flatArray = [];
+  //   function flatten(node) {
+  //     flatArray.push({ id: node.id, name: node.name });
+  //     if (node.children && node.children.length > 0) {
+  //       node.children.forEach((child) => flatten(child));
+  //     }
+  //   }
+  //   treeData.forEach((node) => flatten(node));
+
+  //   return flatArray;
+  // }
+
+  // 扁平化处理并保留路径信息
+  flattenAddresses(treeData, parentPath = '') {
+    const flatArray = [];
+    function flatten(node, path) {
+      const nodePath = path ? `${path} > ${node.label}` : node.label;
+      flatArray.push({ id: node.value, name: node.label, path: nodePath });
+      if (node.children && node.children.length > 0) {
+        node.children.forEach((child) => flatten(child, nodePath));
+      }
+    } 
+    treeData.forEach((node) => flatten(node, parentPath));
+
+    return flatArray;
+  }
+
+  // flattenAddresses(data) {
+  //   return data.reduce((acc, curr) => {
+  //     acc.push(curr);
+  //     if (curr.children && curr.children.length > 0) {
+  //       acc = acc.concat(this.flattenAddresses(curr.children));
+  //     }
+  //     return acc;
+  //   }, []);
+  // }
 }

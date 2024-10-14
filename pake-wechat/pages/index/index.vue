@@ -1,15 +1,14 @@
 <!--
  * @Author: zhangjian
  * @Date: 2024-08-01 19:41:20
- * @LastEditTime: 2024-08-19 15:15:45
+ * @LastEditTime: 2024-08-19 15:23:48
  * @LastEditors: zhangjian
  * @Description: 首页
 -->
 <template>
 	<view class="content">
-		<view class="text-area">
-			<text class="title" @click="handleJump('weather/index')">天气</text>
-		</view>
+		<view class="title" @click="handleJump('weather/index')">天气</view>
+		<view class="title" @click="handleSwitch('my/index')">微信授权</view>
 	</view>
 </template>
 
@@ -25,6 +24,12 @@
 
 	function handleJump(url: string) {
 		uni.navigateTo({
+			url: `/pages/${url}`
+		})
+	}
+
+	function handleSwitch(url: string) {
+		uni.switchTab({
 			url: `/pages/${url}`
 		})
 	}

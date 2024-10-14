@@ -1,1 +1,0 @@
-<view class="weather-comp"><view>输入位置</view><view>选择城市</view><view class="container">天气显示</view><up-button u-i="5f1af5de-0" bind:__l="__l"/></view>

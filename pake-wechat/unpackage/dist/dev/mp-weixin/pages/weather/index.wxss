@@ -24,5 +24,95 @@
 /* 透明度 */
 /* 文章场景相关 */
 .weather-comp.data-v-37d277d7 {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.weather-comp__search-result.data-v-37d277d7 {
+  border-top: 1px solid #eee;
+  border-top: none;
+}
+.weather-comp__search-result .search-result-item.data-v-37d277d7 {
+  font-size: 28rpx;
+  line-height: 60rpx;
+  color: #bbb;
+  border-bottom: 1px solid #F5F4F5;
+}
+.weather-comp__bg-img.data-v-37d277d7 {
+  z-index: 0;
+  position: absolute;
   width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.weather-comp__content.data-v-37d277d7 {
+  z-index: 100;
+  padding: 32rpx;
+}
+.weather-comp__content .position-info.data-v-37d277d7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weather-comp__content .temperature.data-v-37d277d7 {
+  font-size: 120px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  padding: 32rpx 0;
+}
+.weather-comp__content .temperature .unit.data-v-37d277d7 {
+  font-size: 80px;
+  font-weight: 400;
+  color: #444;
+}
+.weather-comp__content .winddirection.data-v-37d277d7 {
+  text-align: center;
+  font-weight: 500;
+}
+.weather-comp__content .humidity.data-v-37d277d7 {
+  text-align: center;
+  font-weight: 400;
+  margin-top: 32rpx;
+}
+.weather-comp__content .update-time.data-v-37d277d7 {
+  position: absolute;
+  bottom: 32rpx;
+  right: 32rpx;
+  color: #666;
+}
+.weather-comp__popup-content.data-v-37d277d7 {
+  width: 100vw;
+  padding: 32rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.weather-comp__popup-content .address-block.data-v-37d277d7 {
+  margin: 32rpx 0;
+}
+.weather-comp__popup-content .address-block-title.data-v-37d277d7 {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 32rpx 0;
+  color: #666;
+}
+.weather-comp__popup-content .address-block-box.data-v-37d277d7 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.weather-comp__popup-content .address-block-box-item.data-v-37d277d7 {
+  background-color: #F5F4F5;
+  border-radius: 8rpx;
+  padding: 8rpx 32rpx;
+  font-size: 28rpx;
+  color: #999;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}
+.weather-comp .p-12.data-v-37d277d7 {
+  padding: 24rpx;
+}
+.weather-comp .pl-0.data-v-37d277d7 {
+  padding-left: 0rpx;
 }

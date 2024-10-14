@@ -9,19 +9,19 @@ const apiEnvHost = () => {
   switch (_apiEnv) {
     case "dev":
       realDomain = {
-        host: "https://575f2c8a.r8.cpolar.cn"
+        host: "https://35e8e187.r8.cpolar.cn"
         //'https://localhost:3000/',
       };
       break;
     case "test":
       realDomain = {
-        host: "https://575f2c8a.r8.cpolar.cn"
+        host: "https://35e8e187.r8.cpolar.cn"
         //'https://localhost:3000/',
       };
       break;
     case "pro":
       realDomain = {
-        host: "https://575f2c8a.r8.cpolar.cn"
+        host: "https://35e8e187.r8.cpolar.cn"
       };
       break;
   }

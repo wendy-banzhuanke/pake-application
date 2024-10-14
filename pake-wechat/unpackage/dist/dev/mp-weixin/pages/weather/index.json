@@ -1,7 +1,8 @@
 {
   "navigationBarTitleText": "天气",
   "usingComponents": {
-    "up-popup": "../../node-modules/uview-plus/components/u-popup/u-popup",
-    "weather-comp": "../../components/weather/index"
+    "up-icon": "../../node-modules/uview-plus/components/u-icon/u-icon",
+    "up-search": "../../node-modules/uview-plus/components/u-search/u-search",
+    "up-popup": "../../node-modules/uview-plus/components/u-popup/u-popup"
   }
 }

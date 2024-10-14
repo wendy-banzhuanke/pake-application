@@ -60,10 +60,30 @@ let WeatherService = class WeatherService {
         });
     }
     getUsualAddress() {
-        const addressCode = ['110000', '120000', '130000', '140000', '210000'];
-        console.log("addressTree===>", address_1.addressTree.length);
-        const usualAddressList = address_1.addressTree.filter(item => addressCode.includes(item.value)).map(i => i.label);
+        const addressCode = ['110000', '120000', '130000'];
+        const usualAddressList = address_1.default.filter((item) => !!addressCode.includes(item.value));
         return usualAddressList;
+    }
+    getSearchAddress(keyword) {
+        if (keyword.trim() === '') {
+            return;
+        }
+        const flatAddresses = this.flattenAddresses(address_1.default);
+        const regex = new RegExp(keyword.trim(), 'i');
+        const _flat = flatAddresses.filter((address) => !!regex.test(address.name));
+        return _flat;
+    }
+    flattenAddresses(treeData, parentPath = '') {
+        const flatArray = [];
+        function flatten(node, path) {
+            const nodePath = path ? `${path} > ${node.label}` : node.label;
+            flatArray.push({ id: node.value, name: node.label, path: nodePath });
+            if (node.children && node.children.length > 0) {
+                node.children.forEach((child) => flatten(child, nodePath));
+            }
+        }
+        treeData.forEach((node) => flatten(node, parentPath));
+        return flatArray;
     }
 };
 exports.WeatherService = WeatherService;

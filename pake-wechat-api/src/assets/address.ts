@@ -1,4 +1,4 @@
-export const addressTree = [
+const addressData = [
   {
     "label": "中华人民共和国",
     "value": "100000",
@@ -13562,3 +13562,5 @@ export const addressTree = [
   }
 ]; 
 
+//  module.exports = addressData 
+ export default addressData

@@ -23,7 +23,7 @@ let WeatherController = class WeatherController {
     }
     async getWeatherInfoByCity(city) {
         const cityCode = Number(city);
-        console.log("cityCode====", city, cityCode);
+        console.log('cityCode====', city, cityCode);
         const _weatherInfo = await this.weatherService.getWeatherInfo(cityCode);
         return { code: '000000', success: true, data: _weatherInfo.lives };
     }
@@ -38,7 +38,23 @@ let WeatherController = class WeatherController {
         };
     }
     getUsualAddress() {
-        return this.weatherService.getUsualAddress();
+        const usualData = this.weatherService.getUsualAddress();
+        console.log('usualData===', usualData);
+        return {
+            message: '获取常用地址成功',
+            data: usualData,
+            code: '000000',
+        };
+    }
+    getSearchAddress(keyword) {
+        console.log('keyword===', keyword);
+        const searchData = this.weatherService.getSearchAddress(keyword);
+        console.log('flatAddresses=searchData==>', searchData);
+        return {
+            message: '获取搜索地址成功',
+            data: searchData,
+            code: '000000',
+        };
     }
 };
 exports.WeatherController = WeatherController;
@@ -58,10 +74,19 @@ __decorate([
 ], WeatherController.prototype, "generateAddressData", null);
 __decorate([
     (0, common_1.Post)('getUsualAddress'),
+    (0, common_1.HttpCode)(200),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], WeatherController.prototype, "getUsualAddress", null);
+__decorate([
+    (0, common_1.Post)('getSearchAddress'),
+    (0, common_1.HttpCode)(200),
+    __param(0, (0, common_1.Body)('keyword')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], WeatherController.prototype, "getSearchAddress", null);
 exports.WeatherController = WeatherController = __decorate([
     (0, common_1.Controller)('/weather'),
     __metadata("design:paramtypes", [weather_service_1.WeatherService])

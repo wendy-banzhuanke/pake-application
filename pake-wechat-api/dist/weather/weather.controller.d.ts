@@ -11,5 +11,25 @@ export declare class WeatherController {
         message: string;
         code: string;
     };
-    getUsualAddress(): string[];
+    getUsualAddress(): {
+        message: string;
+        data: {
+            label: string;
+            value: string;
+            children: {
+                label: string;
+                value: string;
+                children: {
+                    label: string;
+                    value: string;
+                }[];
+            }[];
+        }[];
+        code: string;
+    };
+    getSearchAddress(keyword: string): {
+        message: string;
+        data: any[];
+        code: string;
+    };
 }
